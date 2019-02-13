@@ -43,6 +43,7 @@ fed_rd %>%
         axis.title.x=element_text(angle=0,hjust=1),
         plot.title = element_text(hjust = 0.5))
 
+#ggsave("fed-rd-spending.png",path = "~/tidytuesday/tidy_tuesday_2019_week_07/")
 
 # Quick view of climate spending over the years
 climate_spend %>%
@@ -50,7 +51,6 @@ climate_spend %>%
   geom_line() +
   scale_y_continuous(labels = scales::comma) +
   scale_x_continuous(breaks = c(seq(2000, 2017, by = 5))) +
-  #gghighlight(department %in% c("DOD", "HHS", "NIH")) +
   labs(y = "",
        x = "",
        title = "climate spending") +
@@ -58,19 +58,22 @@ climate_spend %>%
         axis.title.x=element_text(angle=0,hjust=1),
         plot.title = element_text(hjust = 0.5))
 
+#ggsave("climate-spending.png",path = "~/tidytuesday/tidy_tuesday_2019_week_07/")
+
+
 # Quick view of energy spending over the years
 energy_spend %>%
   ggplot(aes(year, energy_spending, color = department)) +
   geom_line() +
   scale_y_continuous(labels = scales::comma) +
   scale_x_continuous(breaks = c(seq(1997, 2018, by = 5))) +
-  #gghighlight(department %in% c("DOD", "HHS", "NIH")) +
   labs(y = "",
        x = "",
        title = "energy spending") +
   theme(axis.title.y=element_text(angle=90,hjust=1),
         axis.title.x=element_text(angle=0,hjust=1),
         plot.title = element_text(hjust = 0.5))
+#ggsave("energy-spending.png",path = "~/tidytuesday/tidy_tuesday_2019_week_07/")
 
 
 
